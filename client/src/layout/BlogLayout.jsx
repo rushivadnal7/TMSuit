@@ -7,7 +7,7 @@ import BlogSupport from '../components/blogComponents/BlogSupport';
 const BlogLayout = ({ children }) => {
     const location = useLocation();
 
-    const parts = location.pathname.split("/").filter(Boolean); // Removes empty strings
+    const parts = location.pathname.split("/").filter(Boolean); 
 
     return (
         <BlogLayoutWrapper>

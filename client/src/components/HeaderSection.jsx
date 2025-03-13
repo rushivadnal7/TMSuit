@@ -1,10 +1,22 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const HeaderSection = ({ titles }) => {
+    const location = useLocation();
+    const parts = location.pathname.split("/").filter(Boolean);
+
     const navigate = useNavigate()
 
+    if (parts[0] === 'contact') {
+        return (
+            <Wrapper>
+                <h1>Contact</h1>
+                <span className='home' onClick={() => navigate('/')}>Home /</span>
+                <span className='current' >contact</span>
+            </Wrapper>
+        )
+    }
     let title1 = titles[0], title2
     if (titles.length > 1) {
         title2 = titles[1].trim().replace(/-/g, ' ').toLowerCase();
